@@ -17,7 +17,7 @@ public class OreGen implements IWorldGenerator {
     public WorldGenerator xpCrystalGenerator;
 
     public OreGen() {
-        xpCrystalGenerator = new WorldGenMinable(ModBlocks.BLOCK_XP_CRYSTAL.getDefaultState(), 50);
+        xpCrystalGenerator = new WorldGenMinable(ModBlocks.BLOCK_XP_CRYSTAL.getDefaultState(), 8);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class OreGen implements IWorldGenerator {
         switch (world.provider.getDimension()) {
             case 0: //Overworld Dimension
                 //if (ConfigHandler.enableLavaCrystalOverworldGen) {
-                    this.runGenerator(xpCrystalGenerator, world, random, chunkX, chunkZ, 80, 65, 75);
+                    this.runGenerator(xpCrystalGenerator, world, random, chunkX, chunkZ, 10, 50, 80);
                 //}
 
         }

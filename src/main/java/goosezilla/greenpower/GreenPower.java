@@ -83,10 +83,10 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         proxy.registerWorldGenerators();
     }
 
-//    @EventHandler
-//   public void serverLoad(FMLServerStartingEvent event) {
-//        event.registerServerCommand(new CommandGreenPower());
-//    }
+  //  @EventHandler
+  // public void serverLoad(FMLServerStartingEvent event) {
+  //      event.registerServerCommand(new CommandGreenPower());
+  // }
 
 
 }

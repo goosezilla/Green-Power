@@ -9,7 +9,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenderers(GreenPower ins) {
 
-        //ModItems.initModels();
+        ModItems.initModels();
         ModBlocks.registerRenders();
     }
 }

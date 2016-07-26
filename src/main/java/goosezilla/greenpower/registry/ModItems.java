@@ -1,5 +1,6 @@
 package goosezilla.greenpower.registry;
 
+import goosezilla.greenpower.blocks.BlockXPCrystal;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import goosezilla.greenpower.items.materials.*;
@@ -15,8 +16,9 @@ public class ModItems {
         XP_CRYSTAL = new XPCrystal();
     }
 
-//    @SideOnly(Side.CLIENT)
-//    public static void initModels() {
-//        XP_CRYSTAL.initModel();
-//    }
+    @SideOnly(Side.CLIENT)
+    public static void initModels() {
+
+        XP_CRYSTAL.initModel();
+   }
 }

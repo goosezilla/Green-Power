@@ -15,13 +15,13 @@ public class XPCrystal extends Item {
 
     public XPCrystal(){
         setRegistryName("xp_crystal");
-        setUnlocalizedName("BlockXPCrystal");
+        setUnlocalizedName("XPCrystal");
         GameRegistry.register(this);
         //this.setCreativeTab(GreenPower.TAB_GREENPOWER_ITEMS)
     }
 
     @SideOnly(Side.CLIENT)
-    public void intitModel() {
-        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation("greenpower:BlockXPCrystal", "inventory"));
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation("greenpower:XPCrystal", "inventory"));
     }
 }

@@ -17,7 +17,8 @@ public class ModBlocks {
     public static Block BLOCK_XP_CRYSTAL;
 
     public static void init() {
-        BLOCK_XP_CRYSTAL = new BlockXPCrystal().setRegistryName("block_xp_crystal");
+        BLOCK_XP_CRYSTAL = new BlockXPCrystal();
+        //.setRegistryName("block_xp_crystal");
     }
 
     public static void register() {
