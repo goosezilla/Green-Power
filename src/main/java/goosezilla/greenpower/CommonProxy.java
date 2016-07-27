@@ -8,15 +8,6 @@ import goosezilla.greenpower.worldgen.OreGen;
  */
 public class CommonProxy {
 
-    public void loadRenders() {
-    }
-
-    public void addChatMessage(String string) {
-    }
-
-    public void addChatMessage(String string, int id) {
-    }
-
     public void registerRenderers(GreenPower greenPower) {
     }
 

@@ -28,14 +28,17 @@ public class XPCrystal extends Item {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand){
-        world.spawnEntityInWorld(new EntityXPOrb(world, player.posX+0.5, player.posY+0.5, player.posZ+0.5, 20));
-        stack.stackSize--;
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
+        if (!world.isRemote) {
+            world.spawnEntityInWorld(new EntityXPOrb(world, player.posX + 0.5, player.posY + 0.5, player.posZ + 0.5, 20));
+            stack.stackSize--;
+        }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 
-    @SideOnly(Side.CLIENT)
-    public void initModel() {
-        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation("greenpower:XPCrystal", "inventory"));
+        @SideOnly(Side.CLIENT)
+        public void initModel() {
+            ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation("greenpower:XPCrystal", "inventory"));
+        }
     }
-}
+

@@ -11,14 +11,18 @@ import goosezilla.greenpower.items.materials.*;
 public class ModItems {
 
     public static XPCrystal XP_CRYSTAL;
+    public static GreenIron GREEN_IRON;
 
     public static void init() {
+
         XP_CRYSTAL = new XPCrystal();
+        GREEN_IRON = new GreenIron();
     }
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
 
         XP_CRYSTAL.initModel();
+        GREEN_IRON.initModel();
    }
 }
