@@ -4,6 +4,7 @@ import goosezilla.greenpower.items.materials.GreenIron;
 import goosezilla.greenpower.items.materials.XPCrystal;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,7 +23,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import goosezilla.greenpower.registry.*;
 
 import java.io.File;
-
 import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
 
@@ -50,7 +50,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
     public void init(FMLInitializationEvent event) {
 
         //ModRecipes.init();
-        GameRegistry.addShapedRecipe(new ItemStack(GreenIron, 1, 0)," b ", "bgb", " b ", 'b', "XPCrystal", 'g', "Items.IRON_INGOT");
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.GREEN_IRON, 1, 0)," b ", "bgb", " b ", 'b', ModItems.XP_CRYSTAL, 'g', Items.IRON_INGOT);
 
         //Ores
         registerOre("oreXPCrystal", new ItemStack(ModBlocks.BLOCK_XP_CRYSTAL, 1));

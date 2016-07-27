@@ -1,10 +1,7 @@
 {
 	"variants": {
 		"normal": [
-			{ "model": "greenpower:BlockXPCrystal" },
-			{ "model": "greenpower:BlockXPCrystal", "y": 90 },
-			{ "model": "greenpower:BlockXPCrystal", "y": 180 },
-			{ "model": "greenpower:BlockXPCrystal", "y": 270 }
+			{ "model": "greenpower:BlockXPCrystal" }
 		]
 	}
 }
