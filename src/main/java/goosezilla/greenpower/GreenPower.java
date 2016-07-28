@@ -49,8 +49,9 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
     @EventHandler
     public void init(FMLInitializationEvent event) {
 
-        //ModRecipes.init();
+        //ModRecipes
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.GREEN_IRON, 1, 0)," b ", "bgb", " b ", 'b', ModItems.XP_CRYSTAL, 'g', Items.IRON_INGOT);
+        GameRegistry.addShapedRecipe(new ItemStack(ModTools.GREEN_IRON_PICK, 1, 0),"ggg", " s ", " s ", 'g', ModItems.GREEN_IRON, 's', Items.STICK);
 
         //Ores
         registerOre("oreXPCrystal", new ItemStack(ModBlocks.BLOCK_XP_CRYSTAL, 1));
@@ -60,6 +61,9 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
         //ingots
         registerOre("ingotGreenIron", new ItemStack(ModItems.GREEN_IRON, 1));
+
+        //tools
+        registerOre("toolGreenIronPick", new ItemStack(ModTools.GREEN_IRON_PICK, 1));
 
         //This will handle client/common init.
         // proxy.init();
@@ -72,6 +76,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         ModItems.init();
         ModBlocks.init();
         ModBlocks.register();
+        ModTools.init();
 
         proxy.registerRenderers(this);
         proxy.registerWorldGenerators();
