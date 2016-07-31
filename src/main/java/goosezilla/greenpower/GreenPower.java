@@ -1,28 +1,24 @@
 package goosezilla.greenpower;
 
-import goosezilla.greenpower.items.materials.GreenIron;
-import goosezilla.greenpower.items.materials.XPCrystal;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
+import goosezilla.greenpower.compat.TinkersCompat;
+import goosezilla.greenpower.util.GreenIronUtil;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import goosezilla.greenpower.registry.*;
+import net.minecraftforge.oredict.OreDictionary;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.io.File;
+import java.util.Random;
+
 import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
 
@@ -46,41 +42,53 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
     @Instance(MODID)
     public static GreenPower instance;
 
+    public static Random rand = new Random();
+    public static Logger log = LogManager.getLogger(MODID);
+
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+        ModItems.init();
+        ModBlocks.init();
+        ModTools.init();
+
+        proxy.registerWorldGenerators();
+        proxy.preInit(event);
+    }
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
 
+        TinkersCompat.init(event);
+
         //ModRecipes
-        GameRegistry.addShapedRecipe(new ItemStack(ModItems.GREEN_IRON, 1, 0)," b ", "bgb", " b ", 'b', ModItems.XP_CRYSTAL, 'g', Items.IRON_INGOT);
-        GameRegistry.addShapedRecipe(new ItemStack(ModTools.GREEN_IRON_PICK, 1, 0),"ggg", " s ", " s ", 'g', ModItems.GREEN_IRON, 's', Items.STICK);
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.itemGreenIron, 1, 0)," b ", "bgb", " b ", 'b', ModItems.itemXPCrystal, 'g', Items.IRON_INGOT);
+        GameRegistry.addShapedRecipe(new ItemStack(ModTools.GREEN_IRON_PICK, 1, 0),"ggg", " s ", " s ", 'g', ModItems.itemGreenIron, 's', Items.STICK);
 
         //Ores
-        registerOre("oreXPCrystal", new ItemStack(ModBlocks.BLOCK_XP_CRYSTAL, 1));
+        registerOre("oreXPCrystal", new ItemStack(ModBlocks.blockXPCrystal, 1));
 
         //Gems
-        registerOre("gemXPCrystal", new ItemStack(ModItems.XP_CRYSTAL, 1));
+        registerOre("gemXPCrystal", ModItems.itemXPCrystal);
 
         //ingots
-        registerOre("ingotGreenIron", new ItemStack(ModItems.GREEN_IRON, 1));
+        registerOre("ingotGreenIron", ModItems.itemGreenIron);
 
         //tools
-        registerOre("toolGreenIronPick", new ItemStack(ModTools.GREEN_IRON_PICK, 1));
+        GameRegistry.register(ModTools.GREEN_IRON_PICK);
 
-        //This will handle client/common init.
-        // proxy.init();
-
-
+        proxy.init(event);
     }
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        ModItems.init();
-        ModBlocks.init();
-        ModBlocks.register();
-        ModTools.init();
+    public void postInit(FMLPostInitializationEvent event)
+    {
+        GreenIronUtil.init();
 
-        proxy.registerRenderers(this);
-        proxy.registerWorldGenerators();
+        proxy.postInit(event);
+        TinkersCompat.postInit(event);
     }
+
 
     //  @EventHandler
     // public void serverLoad(FMLServerStartingEvent event) {

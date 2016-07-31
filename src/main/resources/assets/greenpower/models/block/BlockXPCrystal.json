@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "greenpower:blocks/BlockXPCrystal"
+    "all": "greenpower:blocks/blockXPCrystal"
   }
 }

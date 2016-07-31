@@ -17,7 +17,7 @@ public class OreGen implements IWorldGenerator {
     public WorldGenerator xpCrystalGenerator;
 
     public OreGen() {
-        xpCrystalGenerator = new WorldGenMinable(ModBlocks.BLOCK_XP_CRYSTAL.getDefaultState(), 8);
+        xpCrystalGenerator = new WorldGenMinable(ModBlocks.blockXPCrystal.getDefaultState(), 8);
     }
 
     @Override

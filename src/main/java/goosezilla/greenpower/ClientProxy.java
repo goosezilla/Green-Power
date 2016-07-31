@@ -1,19 +1,33 @@
 package goosezilla.greenpower;
 
-import goosezilla.greenpower.registry.ModBlocks;
-import goosezilla.greenpower.registry.ModItems;
-import goosezilla.greenpower.registry.ModTools;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Goose on 26/07/2016.
  */
-public class ClientProxy extends CommonProxy {
-    @Override
-    public void registerRenderers(GreenPower ins) {
+public class ClientProxy extends CommonProxy
+{
+    private static final Map<ItemStack, ModelResourceLocation> MODEL_LOCATIONS = new HashMap<ItemStack, ModelResourceLocation>();
 
-        ModItems.initModels();
-        ModBlocks.registerRenders();
-        ModTools.initModels();
+    @Override
+    public void preInit(FMLPreInitializationEvent e) {
+        super.preInit(e);
+
+        for(Map.Entry<ItemStack, ModelResourceLocation> entry : MODEL_LOCATIONS.entrySet()){
+            ModelLoader.setCustomModelResourceLocation(entry.getKey().getItem(), entry.getKey().getItemDamage(), entry.getValue());
+        }
+    }
+
+    @Override
+    public void addRenderRegister(ItemStack stack, ResourceLocation location, String variant) {
+        MODEL_LOCATIONS.put(stack, new ModelResourceLocation(location, variant));
     }
 }
 
