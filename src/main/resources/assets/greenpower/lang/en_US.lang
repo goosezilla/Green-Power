@@ -2,10 +2,11 @@ itemGroup.greenpower=Green Power
 item.greenpower.itemXPCrystal.name=Green Crystal
 item.greenpower.itemGreenIron.name=Green Iron
 item.greenpower.itemGreenIronPick.name=Green Iron Pick
+item.greenpower.itemGreenCoal.name=Green Coal
 
 tile.greenpower.blockXPCrystal.name=Green Ore
 
 material.greeniron.name=Green Iron
 fluid.greeniron.name=Molten Green Iron
-modifier.lucky.name=Lucky
-modifier.lucky.desc=Has a chance to drop valuables the deeper you go.
+modifier.exhaustive.name=Exhaustive
+modifier.exhaustive.desc=Exhaustively mine stone for a chance of valuables other Steves would miss at the cost of hunger.

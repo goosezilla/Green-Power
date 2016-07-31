@@ -25,11 +25,13 @@ import static slimeknights.tconstruct.library.utils.HarvestLevels.DIAMOND;
 
 public class TinkersCompat
 {
-    public static final Material greeniron = new Material("greeniron",0x0cff28);
-    public static final FluidMolten fluidGreeniron = new FluidMolten("greeniron", 0x0cff28);
+    public static final int GREENIRON_COLOR = 0x319C03;
+
+    public static final Material greeniron = new Material("greeniron", GREENIRON_COLOR);
+    public static final FluidMolten fluidGreeniron = new FluidMolten("greeniron", GREENIRON_COLOR);
     //public static Block blockMoltenGreenIron;
 
-    public static final AbstractTrait traitLucky = new TraitLucky();
+    public static final AbstractTrait traitExhaustive = new TraitExhaustive();
 
     public static void init(FMLInitializationEvent event)
     {
@@ -45,7 +47,7 @@ public class TinkersCompat
         greeniron.addItem(ModItems.itemGreenIron);
         greeniron.setRepresentativeItem(ModItems.itemGreenIron);
         greeniron.setFluid(fluidGreeniron);
-        greeniron.addTrait(traitLucky);
+        greeniron.addTrait(traitExhaustive);
 
         TinkerRegistry.addMaterial(greeniron);
         TinkerRegistry.addMaterialStats(greeniron,
@@ -72,7 +74,7 @@ public class TinkersCompat
     @SideOnly(Side.CLIENT)
     private static void registerMaterialRendering()
     {
-        greeniron.setRenderInfo(new MaterialRenderInfo.Metal(0x0cff28, 0f, 0.3f, 0f));
+        greeniron.setRenderInfo(new MaterialRenderInfo.Metal(GREENIRON_COLOR, 0f, 0.3f, 0f));
     }
 
     public static BlockMolten registerMoltenBlock(Fluid fluid) {

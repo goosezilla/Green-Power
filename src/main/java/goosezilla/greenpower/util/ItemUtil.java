@@ -3,8 +3,8 @@ package goosezilla.greenpower.util;
 import goosezilla.greenpower.CreativeTab;
 import goosezilla.greenpower.GreenPower;
 import goosezilla.greenpower.blocks.ItemBlockBase;
-import goosezilla.greenpower.items.ItemBase;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public final class ItemUtil {
@@ -20,7 +20,7 @@ public final class ItemUtil {
         block.setCreativeTab(addToCreativeTab ? CreativeTab.INSTANCE : null);
     }
 
-    public static void registerItem(ItemBase item, String name, boolean addToCreativeTab)
+    public static void registerItem(Item item, String name, boolean addToCreativeTab)
     {
         item.setUnlocalizedName(GreenPower.MODID+"."+name);
         item.setRegistryName(GreenPower.MODID, name);

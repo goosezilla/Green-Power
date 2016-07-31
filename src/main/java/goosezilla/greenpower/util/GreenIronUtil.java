@@ -2,7 +2,9 @@ package goosezilla.greenpower.util;
 
 import goosezilla.greenpower.GreenPower;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -12,9 +14,6 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Pobiega on 2016-07-31.
- */
 public class GreenIronUtil
 {
     public static List<WeightedRandomCollection<ItemStack>> dropList;
@@ -74,16 +73,25 @@ public class GreenIronUtil
     }
 
 
-    public static void checkForMining(World world, IBlockState state, BlockPos pos)
+    public static void checkForMining(World world, IBlockState state, BlockPos pos, EntityLivingBase living)
     {
         if(!world.isRemote)
         {
-            //get this from config in the future
-            float chance = 1f;
-            if(state.getBlock() == Blocks.STONE && GreenPower.rand.nextFloat() < chance){
-                ItemStack drop = GreenIronUtil.getRandomItemstack(GreenIronUtil.getTier(pos.getY()));
-                if(drop != null)
-                    world.spawnEntityInWorld(new EntityItem(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, drop));
+            //before we even random, make sure the player has food to "trade".
+            if (living instanceof EntityPlayer) {
+                EntityPlayer player = (EntityPlayer) living;
+                if (player.getFoodStats().getFoodLevel() > 0) {
+                    //get this from config in the future
+                    float chance = 1f;
+                    if (state.getBlock() == Blocks.STONE && GreenPower.rand.nextFloat() < chance) {
+                        ItemStack drop = GreenIronUtil.getRandomItemstack(GreenIronUtil.getTier(pos.getY()));
+                        if (drop != null) {
+                            world.spawnEntityInWorld(new EntityItem(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, drop));
+                            //add exhaustion. 1.0f is 1/4th of a foodlevel (1/8th of a "club" ingame)
+                            player.addExhaustion(1.0f);
+                        }
+                    }
+                }
             }
         }
     }
