@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "greenpower:items/itemGreenCoal"
+        "layer0": "greenpower:food/foodGreenCarrot"
     }
 }
 

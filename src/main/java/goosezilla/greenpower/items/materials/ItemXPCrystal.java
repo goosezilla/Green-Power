@@ -21,9 +21,9 @@ public class ItemXPCrystal extends ItemBase
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-        if (!world.isRemote) {
-            world.spawnEntityInWorld(new EntityXPOrb(world, player.posX + 0.5, player.posY + 0.5, player.posZ + 0.5, 20));
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World worldIn, EntityPlayer player, EnumHand hand) {
+        if (!worldIn.isRemote) {
+            worldIn.spawnEntityInWorld(new EntityXPOrb(worldIn, player.posX + 0.5, player.posY + 0.5, player.posZ + 0.5, 20));
             stack.stackSize--;
         }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);

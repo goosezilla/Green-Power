@@ -1,10 +1,11 @@
 package goosezilla.greenpower.registry;
 
-import goosezilla.greenpower.items.materials.ItemGreenCoal;
-import goosezilla.greenpower.items.materials.ItemGreenIron;
-import goosezilla.greenpower.items.materials.ItemXPCrystal;
 import net.minecraft.item.Item;
+import goosezilla.greenpower.items.materials.*;
 
+/**
+ * Created by Goose on 26/07/2016.
+ */
 public class ModItems
 {
     public static Item itemGreenIron;

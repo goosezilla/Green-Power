@@ -1,9 +1,6 @@
 package goosezilla.greenpower;
 
 import goosezilla.greenpower.compat.TinkersCompat;
-import goosezilla.greenpower.registry.ModBlocks;
-import goosezilla.greenpower.registry.ModItems;
-import goosezilla.greenpower.registry.ModTools;
 import goosezilla.greenpower.util.GreenIronUtil;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -15,6 +12,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import goosezilla.greenpower.registry.*;
+import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -52,6 +51,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         ModItems.init();
         ModBlocks.init();
         ModTools.init();
+        ModFoods.init();
 
         proxy.registerWorldGenerators();
         proxy.preInit(event);
@@ -64,7 +64,8 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
         //ModRecipes
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.itemGreenIron, 1, 0)," b ", "bgb", " b ", 'b', ModItems.itemXPCrystal, 'g', Items.IRON_INGOT);
-        GameRegistry.addShapedRecipe(new ItemStack(ModTools.itemGreenIronPick, 1, 0), "ggg", " s ", " s ", 'g', ModItems.itemGreenIron, 's', Items.STICK);
+        GameRegistry.addShapedRecipe(new ItemStack(ModTools.itemGreenIronPick, 1, 0),"ggg", " s ", " s ", 'g', ModItems.itemGreenIron, 's', Items.STICK);
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.itemGreenCoal, 1, 0),"bbb", "bcb", "bbb", 'b', ModItems.itemXPCrystal, 'c', Items.COAL);
 
         //Ores
         registerOre("oreXPCrystal", new ItemStack(ModBlocks.blockXPCrystal, 1));
@@ -76,14 +77,24 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         //ingots
         registerOre("ingotGreenIron", ModItems.itemGreenIron);
 
+        //foods
+        registerOre("foodGreenCarrot", ModFoods.foodGreenCarrot);
+
         proxy.init(event);
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+    public void postInit(FMLPostInitializationEvent event)
+    {
         GreenIronUtil.init();
 
         proxy.postInit(event);
         TinkersCompat.postInit(event);
     }
+
+
+    //  @EventHandler
+    // public void serverLoad(FMLServerStartingEvent event) {
+    //      event.registerServerCommand(new CommandGreenPower());
+    // }
 }
