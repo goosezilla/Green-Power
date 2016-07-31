@@ -5,9 +5,6 @@ import goosezilla.greenpower.util.ItemUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-/**
- * Created by Pobiega on 2016-07-31.
- */
 public class ItemBase extends Item
 {
     private final String name;

@@ -9,9 +9,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Goose on 26/07/2016.
- */
 public class ClientProxy extends CommonProxy
 {
     private static final Map<ItemStack, ModelResourceLocation> MODEL_LOCATIONS = new HashMap<ItemStack, ModelResourceLocation>();

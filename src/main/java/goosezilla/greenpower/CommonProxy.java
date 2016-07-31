@@ -1,16 +1,14 @@
 package goosezilla.greenpower;
+
+import goosezilla.greenpower.worldgen.OreGen;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import goosezilla.greenpower.worldgen.OreGen;
 
 
-/**
- * Created by Goose on 26/07/2016.
- */
 public class CommonProxy {
 
     public void registerWorldGenerators()

@@ -4,9 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-/**
- * Created by Pobiega on 2016-07-31.
- */
 public class ItemBlockBase extends ItemBlock
 {
     public ItemBlockBase(Block block)

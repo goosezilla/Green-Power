@@ -6,9 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-/**
- * Created by Goose on 31/07/2016.
- */
 public class FoodGreenCarrot extends FoodBase
 {
 

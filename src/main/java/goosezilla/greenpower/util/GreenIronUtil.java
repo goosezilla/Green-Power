@@ -14,9 +14,6 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Pobiega on 2016-07-31.
- */
 public class GreenIronUtil
 {
     public static List<WeightedRandomCollection<ItemStack>> dropList;

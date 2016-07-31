@@ -4,9 +4,6 @@ import java.util.NavigableMap;
 import java.util.Random;
 import java.util.TreeMap;
 
-/**
- * Created by Pobiega on 2016-07-30.
- */
 public class WeightedRandomCollection<E>
 {
     private final NavigableMap<Double, E> map = new TreeMap<Double, E>();

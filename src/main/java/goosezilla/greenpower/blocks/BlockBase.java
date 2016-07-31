@@ -5,11 +5,7 @@ import goosezilla.greenpower.util.ItemUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 
-/**
- * Created by Pobiega on 2016-07-31.
- */
 public abstract class BlockBase extends Block
 {
     private final String name;

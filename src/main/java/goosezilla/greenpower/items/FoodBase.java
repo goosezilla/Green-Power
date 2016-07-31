@@ -5,9 +5,6 @@ import goosezilla.greenpower.util.ItemUtil;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
-/**
- * Created by Goose on 31/07/2016.
- */
 public class FoodBase extends ItemFood
 {
     private final String name;
