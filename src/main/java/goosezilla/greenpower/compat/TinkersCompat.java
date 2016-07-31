@@ -1,14 +1,11 @@
 package goosezilla.greenpower.compat;
 
-import goosezilla.greenpower.GreenPower;
 import goosezilla.greenpower.registry.ModItems;
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -26,14 +23,11 @@ import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import static slimeknights.tconstruct.library.utils.HarvestLevels.DIAMOND;
 
-/**
- * Created by Pobiega on 2016-07-31.
- */
 public class TinkersCompat
 {
     public static final Material greeniron = new Material("greeniron",0x0cff28);
     public static final FluidMolten fluidGreeniron = new FluidMolten("greeniron", 0x0cff28);
-    public static Block blockMoltenGreenIron;
+    //public static Block blockMoltenGreenIron;
 
     public static final AbstractTrait traitLucky = new TraitLucky();
 
@@ -42,9 +36,9 @@ public class TinkersCompat
         fluidGreeniron.setUnlocalizedName(fluidGreeniron.getName());
         fluidGreeniron.setTemperature(769);
         FluidRegistry.registerFluid(fluidGreeniron);
-        blockMoltenGreenIron = registerMoltenBlock(fluidGreeniron);
-        fluidGreeniron.setBlock(blockMoltenGreenIron);
-        FluidRegistry.addBucketForFluid(fluidGreeniron);
+        //blockMoltenGreenIron = registerMoltenBlock(fluidGreeniron);
+        //fluidGreeniron.setBlock(blockMoltenGreenIron);
+        //FluidRegistry.addBucketForFluid(fluidGreeniron);
 
         greeniron.setCraftable(true);
         greeniron.setCastable(true);
