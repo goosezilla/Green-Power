@@ -1,5 +1,6 @@
 package goosezilla.greenpower;
 
+import com.google.common.collect.Lists;
 import goosezilla.greenpower.compat.TinkersCompat;
 import goosezilla.greenpower.config.ModConfig;
 import goosezilla.greenpower.entity.EntityGreenPig;
@@ -65,9 +66,11 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         ModTools.init();
         ModFoods.init();
 
-        registerEntity(EntityGreenPig.class, "EntityMobPig1", 0x008500, 0x98FB98);
-            new Potions().registerPotions();
+        //TODO: Clean up the entity registering mess and move it to its own file.
 
+        registerEntity(EntityGreenPig.class, "entityGreenPig", 0x008500, 0x98FB98);
+
+        new Potions().registerPotions();
 
         proxy.registerWorldGenerators();
         proxy.preInit(event);
@@ -120,7 +123,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
     }
 
     private Biome[] getBiomes(BiomeDictionary.Type... types) {
-        LinkedList<Biome> list = new LinkedList<Biome>();
+        LinkedList<Biome> list = Lists.newLinkedList();
         for (BiomeDictionary.Type t : types) {
             Biome[] biomes = BiomeDictionary.getBiomesForType(t);
             for (Biome bgb : biomes) {
