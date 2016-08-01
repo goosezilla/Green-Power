@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:crop",
+    "textures": {
+      "all": "greenpower:blocks/blockGreenCarrots"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}],
+    "age=0": { "model": "greenpower:blockGreenCarrots_stage0" },
+    "age=1": { "model": "greenpower:blockGreenCarrots_stage0" },
+    "age=2": { "model": "greenpower:blockGreenCarrots_stage1" },
+    "age=3": { "model": "greenpower:blockGreenCarrots_stage1" },
+    "age=4": { "model": "greenpower:blockGreenCarrots_stage2" },
+    "age=5": { "model": "greenpower:blockGreenCarrots_stage2" },
+    "age=6": { "model": "greenpower:blockGreenCarrots_stage2" },
+    "age=7": { "model": "greenpower:blockGreenCarrots_stage3" }
+  }
+}
+
