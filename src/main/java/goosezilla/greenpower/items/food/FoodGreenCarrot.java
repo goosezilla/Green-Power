@@ -1,16 +1,17 @@
 package goosezilla.greenpower.items.food;
 
-import goosezilla.greenpower.items.FoodBase;
+import goosezilla.greenpower.items.SeedFoodBase;
+import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class FoodGreenCarrot extends FoodBase
-{
+public class FoodGreenCarrot extends SeedFoodBase
 
-    public FoodGreenCarrot(int amount, float saturation, boolean isWolfFood, String name) {
-        super(amount, saturation, isWolfFood, name);
+{
+    public FoodGreenCarrot(int healAmount, float saturation, Block crops, Block soil, String name) {
+        super(healAmount, saturation, crops, soil, name);
     }
 
     @Override

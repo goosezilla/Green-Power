@@ -54,6 +54,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
             ModTools.init();
             ModFoods.init();
 
+
             proxy.registerWorldGenerators();
             proxy.preInit(event);
         }
@@ -70,6 +71,9 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
             //Ores
             registerOre("oreXPCrystal", new ItemStack(ModBlocks.blockXPCrystal, 1));
+
+            //blocks
+            registerOre("blockGreenCarrots", ModBlocks.blockGreenCarrots);
 
             //Gems
             registerOre("gemXPCrystal", ModItems.itemXPCrystal);
