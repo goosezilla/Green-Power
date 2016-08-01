@@ -15,9 +15,13 @@ import java.util.List;
 public final class ModConfig {
     public static double exhaustiveChance = 0.1;
     public static double exhaustiveExhaustion = 1;
+    public static int lovePotionID = 51100;
+
     public static ModConfig instance = new ModConfig();
     static ConfigCategory Balance;
+    static ConfigCategory IDs;
     private static Configuration config;
+
 
     private ModConfig() {
     }
@@ -67,6 +71,21 @@ public final class ModConfig {
             prop.setMaxValue(80);
             exhaustiveExhaustion = prop.getDouble();
             prop.setLanguageKey("gui.greenpower.config.exhaustiveExhaustion");
+            propOrder.add(prop.getName());
+
+            config.setCategoryPropertyOrder(cat, propOrder);
+        }
+
+        //IDs
+        {
+            String cat = "IDs";
+            List<String> propOrder = Lists.newArrayList();
+            IDs = config.getCategory(cat);
+
+            prop = config.get(cat, "lovePotionID", lovePotionID);
+            prop.setComment("ID for Love Potion.");
+            lovePotionID = prop.getInt();
+            prop.setLanguageKey("gui.greenpower.config.lovePotionID");
             propOrder.add(prop.getName());
 
             config.setCategoryPropertyOrder(cat, propOrder);

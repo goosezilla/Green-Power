@@ -14,3 +14,10 @@ modifier.exhaustive.name=Exhaustive
 modifier.exhaustive.desc=Exhaustively mine stone for a chance of valuables other Steves would miss at the cost of hunger.
 
 greenpower.configgui.title=Green Power configuration
+
+potion.effect.love=Potion of Love
+splash_potion.effect.love=Splash Potion of Love
+lingering_potion.effect.love=Lingering Potion of Love
+tipped_arrow.effect.love=Arrow of Love
+greenpower.lovePotion=Love
+greenpower.lovePotion.postfix=Potion of Love

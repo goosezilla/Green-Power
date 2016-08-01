@@ -2,6 +2,7 @@ package goosezilla.greenpower;
 
 import goosezilla.greenpower.compat.TinkersCompat;
 import goosezilla.greenpower.config.ModConfig;
+import goosezilla.greenpower.potion.Potions;
 import goosezilla.greenpower.registry.ModBlocks;
 import goosezilla.greenpower.registry.ModFoods;
 import goosezilla.greenpower.registry.ModItems;
@@ -53,6 +54,8 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
             ModBlocks.init();
             ModTools.init();
             ModFoods.init();
+
+            new Potions().registerPotions();
 
 
             proxy.registerWorldGenerators();
