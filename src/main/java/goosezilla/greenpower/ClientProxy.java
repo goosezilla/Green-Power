@@ -1,9 +1,12 @@
 package goosezilla.greenpower;
 
+import goosezilla.greenpower.entity.EntityGreenPig;
+import goosezilla.greenpower.render.RenderEntityGreenPig;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.util.HashMap;
@@ -20,6 +23,8 @@ public class ClientProxy extends CommonProxy
         for(Map.Entry<ItemStack, ModelResourceLocation> entry : MODEL_LOCATIONS.entrySet()){
             ModelLoader.setCustomModelResourceLocation(entry.getKey().getItem(), entry.getKey().getItemDamage(), entry.getValue());
         }
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityGreenPig.class, RenderEntityGreenPig::new);
     }
 
     @Override
