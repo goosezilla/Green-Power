@@ -1,6 +1,7 @@
 package goosezilla.greenpower;
 
 import goosezilla.greenpower.compat.TinkersCompat;
+import goosezilla.greenpower.config.ModConfig;
 import goosezilla.greenpower.registry.ModBlocks;
 import goosezilla.greenpower.registry.ModFoods;
 import goosezilla.greenpower.registry.ModItems;
@@ -44,6 +45,9 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
         @EventHandler
         public void preInit(FMLPreInitializationEvent event) {
+
+            ModConfig.preInit(event);
+
             ModItems.init();
             ModBlocks.init();
             ModTools.init();
