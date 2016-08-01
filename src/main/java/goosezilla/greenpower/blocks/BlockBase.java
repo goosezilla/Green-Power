@@ -18,14 +18,14 @@ public abstract class BlockBase extends Block
         this.register();
     }
 
-    private void register()
+    protected void register()
     {
         ItemUtil.registerBlock(this, this.getItemBlock(), this.getBaseName(), this.getAddToCreativeTab());
 
         this.registerRendering();
     }
 
-    private void registerRendering()
+    protected void registerRendering()
     {
         GreenPower.proxy.addRenderRegister(new ItemStack(this), this.getRegistryName(), "inventory");
     }

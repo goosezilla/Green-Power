@@ -3,7 +3,9 @@ item.greenpower.itemXPCrystal.name=Green Crystal
 item.greenpower.itemGreenIron.name=Green Iron
 item.greenpower.itemGreenIronPick.name=Green Iron Pick
 item.greenpower.itemGreenCoal.name=Green Coal
+item.greenpower.foodGreenCarrot.name=Green Carrot
 
+tile.greenpower.blockGreenCarrot.name=Green Carrots
 tile.greenpower.blockXPCrystal.name=Green Ore
 
 material.greeniron.name=Green Iron

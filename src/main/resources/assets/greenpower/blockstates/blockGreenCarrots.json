@@ -3,21 +3,55 @@
   "defaults": {
     "model": "minecraft:crop",
     "textures": {
-      "all": "greenpower:blocks/blockGreenCarrots"
+      "all": "greenpower:blocks/blockGreenCarrots_stage_0"
     },
     "transform": "forge:default-block"
   },
   "variants": {
     "normal": [{}],
     "inventory": [{}],
-    "age=0": { "model": "greenpower:blockGreenCarrots_stage0" },
-    "age=1": { "model": "greenpower:blockGreenCarrots_stage0" },
-    "age=2": { "model": "greenpower:blockGreenCarrots_stage1" },
-    "age=3": { "model": "greenpower:blockGreenCarrots_stage1" },
-    "age=4": { "model": "greenpower:blockGreenCarrots_stage2" },
-    "age=5": { "model": "greenpower:blockGreenCarrots_stage2" },
-    "age=6": { "model": "greenpower:blockGreenCarrots_stage2" },
-    "age=7": { "model": "greenpower:blockGreenCarrots_stage3" }
+    "age": {
+      "0": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_0"
+        }
+      },
+      "1": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_0"
+        }
+      },
+      "2": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_1"
+        }
+      },
+      "3": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_1"
+        }
+      },
+      "4": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_2"
+        }
+      },
+      "5": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_2"
+        }
+      },
+      "6": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_2"
+        }
+      },
+      "7": {
+        "textures": {
+          "crop": "greenpower:blocks/blockGreenCarrots_stage_3"
+        }
+      }
+    }
   }
 }
 
