@@ -10,3 +10,5 @@ material.greeniron.name=Green Iron
 fluid.greeniron.name=Molten Green Iron
 modifier.exhaustive.name=Exhaustive
 modifier.exhaustive.desc=Exhaustively mine stone for a chance of valuables other Steves would miss at the cost of hunger.
+
+greenpower.configgui.title=Green Power configuration

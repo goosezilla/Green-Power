@@ -24,7 +24,7 @@ import java.util.Random;
 
 import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
-    @Mod(modid = GreenPower.MODID, version = GreenPower.VERSION, dependencies = GreenPower.DEPEND,  name = GreenPower.MODNAME, acceptedMinecraftVersions = "[1.10.2]")
+@Mod(modid = GreenPower.MODID, version = GreenPower.VERSION, dependencies = GreenPower.DEPEND, name = GreenPower.MODNAME, acceptedMinecraftVersions = "[1.10.2]", guiFactory = GreenPower.GUIFACTORY)
     public class GreenPower {
 
         public static final String MODID = "greenpower";
@@ -33,6 +33,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         public static final String MODNAME = "GreenPower";
         public static final String CLIENTPROXY = "goosezilla.greenpower.ClientProxy";
         public static final String COMMONPROXY = "goosezilla.greenpower.CommonProxy";
+    public static final String GUIFACTORY = "goosezilla.greenpower.config.ConfigGui$ConfigGuiFactory";
 
         @SidedProxy(clientSide = GreenPower.CLIENTPROXY, serverSide = GreenPower.COMMONPROXY)
         public static CommonProxy proxy;
