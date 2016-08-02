@@ -6,6 +6,7 @@ import goosezilla.greenpower.items.ItemBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -78,5 +79,10 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
             }
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+    }
+
+    @Override
+    public void onCreated(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
+        setDamage(itemStack, this.getMaxDamage()-8);
     }
 }

@@ -25,10 +25,7 @@ public class OreGen implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
             case 0: //Overworld Dimension
-                //if (ConfigHandler.enableLavaCrystalOverworldGen) {
                     this.runGenerator(xpCrystalGenerator, world, random, chunkX, chunkZ, ModConfig.xpOreRarity, ModConfig.xpOreMinY, ModConfig.xpOreMaxY);
-                //}
-
         }
     }
 
