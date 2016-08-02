@@ -23,3 +23,13 @@ greenpower.lovePotion=Love
 greenpower.lovePotion.postfix=Potion of Love
 
 entity.greenpower.entityGreenPig.name=Green Pig
+
+gui.greenpower.config.greenCoalBurnTime=Green Coal burntime
+gui.greenpower.config.exhaustiveExhaustion=Exhaustion per proc from Exhaustive
+gui.greenpower.config.exhaustiveChance=Chance for Exhaustive to proc
+gui.greenpower.config.greenCoalSmeltsPerLevel=Green Coal smelts per level absorbed
+
+gui.greenpower.config.xpOreVeinSize=Size of XP Ore veins
+gui.greenpower.config.xpOreRarity=Chance to spawn XP ore (1-100).
+gui.greenpower.config.xpOreMinY=Min Y level for spawning XP ore.
+gui.greenpower.config.xpOreMaxY=Max Y level for spawning XP ore.

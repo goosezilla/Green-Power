@@ -1,6 +1,5 @@
 package goosezilla.greenpower;
 
-import com.google.common.collect.Lists;
 import goosezilla.greenpower.compat.TinkersCompat;
 import goosezilla.greenpower.config.ModConfig;
 import goosezilla.greenpower.entity.EntityGreenPig;
@@ -11,12 +10,9 @@ import goosezilla.greenpower.registry.ModItems;
 import goosezilla.greenpower.registry.ModTools;
 import goosezilla.greenpower.util.GreenIronUtil;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -29,7 +25,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.LinkedList;
 import java.util.Random;
 
 import static net.minecraftforge.oredict.OreDictionary.registerOre;
@@ -99,6 +94,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         //Gems
         registerOre("gemXPCrystal", ModItems.itemXPCrystal);
         registerOre("itemGreenCoal", ModItems.itemGreenCoal);
+        GameRegistry.registerFuelHandler((IFuelHandler)ModItems.itemGreenCoal);
 
         //ingots
         registerOre("ingotGreenIron", ModItems.itemGreenIron);
@@ -112,41 +108,9 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
-        BiomeDictionary.registerAllBiomes();
-
-        Biome[] pigBiomes = getBiomes(BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST);
-
         GreenIronUtil.init();
 
         proxy.postInit(event);
         TinkersCompat.postInit(event);
-    }
-
-    private Biome[] getBiomes(BiomeDictionary.Type... types) {
-        LinkedList<Biome> list = Lists.newLinkedList();
-        for (BiomeDictionary.Type t : types) {
-            Biome[] biomes = BiomeDictionary.getBiomesForType(t);
-            for (Biome bgb : biomes) {
-                if (BiomeDictionary.isBiomeOfType(bgb, BiomeDictionary.Type.END) || BiomeDictionary.isBiomeOfType(bgb, BiomeDictionary.Type.NETHER)) {
-                    continue;
-                }
-                if (BiomeDictionary.isBiomeOfType(bgb, BiomeDictionary.Type.SNOWY) || bgb.getTemperature() < 0.32F) {
-                    continue;
-                }
-                if (BiomeDictionary.isBiomeOfType(bgb, BiomeDictionary.Type.WATER)) {
-                    continue;
-                }
-                if (!list.contains(bgb)) {
-                    list.add(bgb);
-                }
-            }
-        }
-        return list.toArray(new Biome[0]);
-    }
-
-    private void addSpawn(Class<? extends EntityLiving> entityClass, int spawnProb, int min, int max, Biome[] biomes) {
-        if (spawnProb > 0) {
-            EntityRegistry.addSpawn(entityClass, spawnProb, min, max, EnumCreatureType.CREATURE, biomes);
-        }
     }
 }

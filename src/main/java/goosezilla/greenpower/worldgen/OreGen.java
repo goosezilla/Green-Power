@@ -1,5 +1,6 @@
 package goosezilla.greenpower.worldgen;
 
+import goosezilla.greenpower.config.ModConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -17,7 +18,7 @@ public class OreGen implements IWorldGenerator {
     public WorldGenerator xpCrystalGenerator;
 
     public OreGen() {
-        xpCrystalGenerator = new WorldGenMinable(ModBlocks.blockXPCrystal.getDefaultState(), 8);
+        xpCrystalGenerator = new WorldGenMinable(ModBlocks.blockXPCrystal.getDefaultState(), ModConfig.xpOreVeinSize);
     }
 
     @Override
@@ -25,7 +26,7 @@ public class OreGen implements IWorldGenerator {
         switch (world.provider.getDimension()) {
             case 0: //Overworld Dimension
                 //if (ConfigHandler.enableLavaCrystalOverworldGen) {
-                    this.runGenerator(xpCrystalGenerator, world, random, chunkX, chunkZ, 10, 50, 80);
+                    this.runGenerator(xpCrystalGenerator, world, random, chunkX, chunkZ, ModConfig.xpOreRarity, ModConfig.xpOreMinY, ModConfig.xpOreMaxY);
                 //}
 
         }
