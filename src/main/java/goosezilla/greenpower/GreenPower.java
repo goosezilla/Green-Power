@@ -113,4 +113,11 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         proxy.postInit(event);
         TinkersCompat.postInit(event);
     }
+
+    public static class Constants {
+        public static class NBT {
+            public static final String OWNER_UUID = "ownerUUID";
+            public static final String OWNER_NAME = "ownerNAME";
+        }
+    }
 }
