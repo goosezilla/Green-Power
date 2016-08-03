@@ -6,8 +6,6 @@ import goosezilla.greenpower.config.ModConfig;
 import goosezilla.greenpower.helper.NBTHelper;
 import goosezilla.greenpower.helper.TextHelper;
 import goosezilla.greenpower.items.ItemBase;
-import goosezilla.greenpower.networks.GreenPowerNetwork;
-import goosezilla.greenpower.networks.NetworkHelper;
 import goosezilla.greenpower.util.PlayerUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -44,9 +42,10 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
         if(fuelItem instanceof ItemGreenCoal)
         {
             if (fuel.getItemDamage() < fuel.getMaxDamage()) {
-                GreenPowerNetwork gpn = NetworkHelper.getGreenPowerNetwork(getOwnerUUID(fuel));
+/*                GreenPowerNetwork gpn = NetworkHelper.getGreenPowerNetwork(getOwnerUUID(fuel));
                 if (gpn != null)
                     GreenPower.log.info("Burning. " + gpn.toString());
+                    */
                 return ModConfig.greenCoalBurnTime;
             }
             return 0;
