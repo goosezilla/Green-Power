@@ -15,6 +15,9 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'idea'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 group= "goosezilla.greenpower" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "greenpower"
 

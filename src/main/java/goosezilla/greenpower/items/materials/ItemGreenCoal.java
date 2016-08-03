@@ -1,12 +1,10 @@
 package goosezilla.greenpower.items.materials;
 
-import goosezilla.greenpower.GreenPower;
 import goosezilla.greenpower.config.ModConfig;
 import goosezilla.greenpower.items.ItemBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -35,7 +33,7 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
 
         if(fuelItem instanceof ItemGreenCoal)
         {
-            if(fuel.getItemDamage() < 64)
+            if (fuel.getItemDamage() < fuel.getMaxDamage())
                 return ModConfig.greenCoalBurnTime;
             return 0;
         }
@@ -46,15 +44,13 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
     @Override
     public boolean hasContainerItem(ItemStack itemStack)
     {
-        if(itemStack.getItemDamage() < 64)
-            return true;
-        return false;
+        return itemStack.getItemDamage() < itemStack.getMaxDamage();
     }
 
     @Override
     public ItemStack getContainerItem(ItemStack itemStack)
     {
-        if(itemStack.getItemDamage() < 64)
+        if (itemStack.getItemDamage() < itemStack.getMaxDamage())
         {
             ItemStack copiedStack = itemStack.copy();
             copiedStack.setItemDamage(itemStack.getItemDamage()+1);
@@ -83,6 +79,6 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
 
     @Override
     public void onCreated(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
-        setDamage(itemStack, this.getMaxDamage()-8);
+        setDamage(itemStack, this.getMaxDamage() - 8);
     }
 }
