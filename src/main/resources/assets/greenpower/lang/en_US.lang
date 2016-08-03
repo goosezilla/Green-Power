@@ -5,6 +5,8 @@ item.greenpower.itemGreenIronPick.name=Green Iron Pick
 item.greenpower.itemGreenCoal.name=Green Coal
 item.greenpower.foodGreenCarrot.name=Green Carrot
 item.greenpower.itemMutationPotion.name=Potion of Green Mutation
+item.greenpower.greenPorkChopRaw.name=Raw Green Pork
+item.greenpower.greenPorkChopCooked.name=Cooked Green Pork
 
 tile.greenpower.blockGreenCarrots.name=Green Carrots
 tile.greenpower.blockXPCrystal.name=Green Ore

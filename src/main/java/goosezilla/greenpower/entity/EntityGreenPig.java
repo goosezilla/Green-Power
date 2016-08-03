@@ -27,7 +27,6 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -35,8 +34,9 @@ import java.util.Set;
 
 public class EntityGreenPig extends EntityAnimal
 {
-    private static final DataParameter<Boolean> SADDLED = EntityDataManager.<Boolean>createKey(EntityGreenPig.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SADDLED = EntityDataManager.createKey(EntityGreenPig.class, DataSerializers.BOOLEAN);
     private static final Set<Item> TEMPTATION_ITEMS = Sets.newHashSet(new Item[] {ModFoods.foodGreenCarrot});
+    public static ResourceLocation lootTable = new ResourceLocation("greenpower", "entities/greenpig");
     private boolean boosting;
     private int boostTime;
     private int totalBoostTime;
@@ -74,7 +74,7 @@ public class EntityGreenPig extends EntityAnimal
     @Nullable
     public Entity getControllingPassenger()
     {
-        return this.getPassengers().isEmpty() ? null : (Entity)this.getPassengers().get(0);
+        return this.getPassengers().isEmpty() ? null : this.getPassengers().get(0);
     }
 
     /**
@@ -186,7 +186,7 @@ public class EntityGreenPig extends EntityAnimal
     @Nullable
     protected ResourceLocation getLootTable()
     {
-        return LootTableList.ENTITIES_PIG;
+        return lootTable;
     }
 
     /**
@@ -194,7 +194,7 @@ public class EntityGreenPig extends EntityAnimal
      */
     public boolean getSaddled()
     {
-        return ((Boolean)this.dataManager.get(SADDLED)).booleanValue();
+        return this.dataManager.get(SADDLED).booleanValue();
     }
 
     /**
@@ -253,7 +253,7 @@ public class EntityGreenPig extends EntityAnimal
      */
     public void moveEntityWithHeading(float strafe, float forward)
     {
-        Entity entity = this.getPassengers().isEmpty() ? null : (Entity)this.getPassengers().get(0);
+        Entity entity = this.getPassengers().isEmpty() ? null : this.getPassengers().get(0);
 
         if (this.isBeingRidden() && this.canBeSteered())
         {
@@ -323,6 +323,7 @@ public class EntityGreenPig extends EntityAnimal
             return true;
         }
     }
+
 
     public EntityGreenPig createChild(EntityAgeable ageable)
     {

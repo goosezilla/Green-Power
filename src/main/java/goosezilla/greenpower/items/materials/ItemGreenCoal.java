@@ -88,7 +88,8 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
     @Override
     public void onCreated(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         setDamage(itemStack, this.getMaxDamage() - 8);
-        saveOwner(itemStack, PlayerUtil.getUUIDFromPlayer(entityPlayer));
+        if (!world.isRemote)
+            saveOwner(itemStack, PlayerUtil.getUUIDFromPlayer(entityPlayer));
     }
 
     public void saveOwner(ItemStack stack, UUID owner) {
