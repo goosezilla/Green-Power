@@ -88,11 +88,17 @@ public class ItemGreenCoal extends ItemBase implements IFuelHandler
     @Override
     public void onCreated(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         setDamage(itemStack, this.getMaxDamage() - 8);
-        if (!world.isRemote)
-            saveOwner(itemStack, PlayerUtil.getUUIDFromPlayer(entityPlayer));
+        saveOwner(itemStack, PlayerUtil.getUUIDFromPlayer(entityPlayer));
     }
 
     public void saveOwner(ItemStack stack, UUID owner) {
+        GreenPower.log.error("SAVEOWNER IS CALLED.");
+        if (owner == null)
+            GreenPower.log.info("SetOwner, OWNER IS NULL");
+        String uuid = owner.toString();
+        GreenPower.log.info("SetOwner, uuid: " + uuid);
+        String name = PlayerUtil.getUsernameFromUUID(owner);
+        GreenPower.log.info("SetOwner, username: " + name);
         NBTHelper.ensureNBT(stack).getTagCompound().setString(GreenPower.Constants.NBT.OWNER_UUID, owner.toString());
         NBTHelper.ensureNBT(stack).getTagCompound().setString(GreenPower.Constants.NBT.OWNER_NAME, PlayerUtil.getUsernameFromUUID(owner));
     }

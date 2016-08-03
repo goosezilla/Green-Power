@@ -2,6 +2,7 @@ package goosezilla.greenpower.registry;
 
 import goosezilla.greenpower.items.FoodBase;
 import goosezilla.greenpower.items.food.FoodGreenCarrot;
+import goosezilla.greenpower.items.food.GreenPorkChopCooked;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
@@ -15,6 +16,6 @@ public class ModFoods
 
         foodGreenCarrot = new FoodGreenCarrot(3, 0.6f, ModBlocks.blockGreenCarrots, Blocks.FARMLAND, "foodGreenCarrot");
         greenPorkChopRaw = new FoodBase(3, 0.3f, true, "greenPorkChopRaw");
-        greenPorkChopCooked = new FoodBase(8, 0.8F, true, "greenPorkChopCooked");
+        greenPorkChopCooked = new GreenPorkChopCooked(8, 0.8F, true, "greenPorkChopCooked");
     }
 }

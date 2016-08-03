@@ -19,7 +19,7 @@ public class FoodGreenCarrot extends SeedFoodBase
     {
         if (!worldIn.isRemote)
         {
-            worldIn.spawnEntityInWorld(new EntityXPOrb(worldIn, player.posX + 0.5, player.posY + 0.5, player.posZ + 0.5, 20));
+            worldIn.spawnEntityInWorld(new EntityXPOrb(worldIn, player.posX + 0.5, player.posY + 0.5, player.posZ + 0.5, 8));
         }
     }
 }
