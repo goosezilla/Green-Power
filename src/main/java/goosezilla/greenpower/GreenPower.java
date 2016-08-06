@@ -85,6 +85,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.itemGreenIron, 1, 0), " b ", "bgb", " b ", 'b', ModItems.itemXPCrystal, 'g', Items.IRON_INGOT);
         GameRegistry.addShapedRecipe(new ItemStack(ModTools.itemGreenIronPick, 1, 0), "ggg", " s ", " s ", 'g', ModItems.itemGreenIron, 's', Items.STICK);
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.itemGreenCoal, 1, 0), "bbb", "bcb", "bbb", 'b', ModItems.itemXPCrystal, 'c', Items.COAL);
+        GameRegistry.addShapedRecipe(new ItemStack(ModFoods.foodGreenCarrot, 1, 0), " b ", "bgb", " b ", 'b', ModItems.itemXPCrystal, 'g', Items.CARROT);
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemMutationPotion, 1, 0), Items.GLASS_BOTTLE, ModFoods.foodGreenCarrot);
 
         //Ores
