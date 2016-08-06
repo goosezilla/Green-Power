@@ -1,9 +1,6 @@
 package goosezilla.greenpower.registry;
 
-import goosezilla.greenpower.items.materials.ItemGreenCoal;
-import goosezilla.greenpower.items.materials.ItemGreenIron;
-import goosezilla.greenpower.items.materials.ItemMutationPotion;
-import goosezilla.greenpower.items.materials.ItemXPCrystal;
+import goosezilla.greenpower.items.materials.*;
 import net.minecraft.item.Item;
 
 public class ModItems
@@ -12,6 +9,7 @@ public class ModItems
     public static Item itemXPCrystal;
     public static Item itemGreenCoal;
     public static Item itemMutationPotion;
+    public static Item itemXpBank;
 
     public static void init()
     {
@@ -19,5 +17,6 @@ public class ModItems
         itemXPCrystal = new ItemXPCrystal("itemXPCrystal");
         itemGreenCoal = new ItemGreenCoal("itemGreenCoal");
         itemMutationPotion = new ItemMutationPotion("itemMutationPotion");
+        itemXpBank = new ItemXPBank("itemXPBank");
     }
 }

@@ -35,7 +35,7 @@ import static net.minecraftforge.oredict.OreDictionary.registerOre;
 
     public static final String MODID = "greenpower";
     public static final String DEPEND = "";
-    public static final String VERSION = "1.10.2-0.1";
+    public static final String VERSION = "1.10.2-0.1.1";
     public static final String MODNAME = "GreenPower";
     public static final String CLIENTPROXY = "goosezilla.greenpower.ClientProxy";
     public static final String COMMONPROXY = "goosezilla.greenpower.CommonProxy";

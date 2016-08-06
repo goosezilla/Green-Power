@@ -43,7 +43,7 @@ public class PlayerUtil {
     }
 
     public static String getUsernameFromStack(ItemStack stack) {
-        stack = NBTHelper.ensureNBT(stack);
+            stack = NBTHelper.ensureNBT(stack);
         return stack.getTagCompound().getString(GreenPower.Constants.NBT.OWNER_NAME);
     }
 }
