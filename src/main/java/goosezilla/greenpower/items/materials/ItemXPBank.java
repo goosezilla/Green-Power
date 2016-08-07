@@ -1,5 +1,6 @@
 package goosezilla.greenpower.items.materials;
 
+import com.google.common.base.Strings;
 import goosezilla.greenpower.GreenPower;
 import goosezilla.greenpower.helper.NBTHelper;
 import goosezilla.greenpower.helper.TextHelper;
@@ -33,14 +34,16 @@ public class ItemXPBank extends ItemBase {
     {
         //Take levels out
         if (playerIn.isSneaking()){
-            if(getStoredXP(itemStackIn) >=7) {
+            if(getStoredXP(itemStackIn) > convertFromLevel(playerIn.experienceLevel-1)) {
                 addStoredXP(itemStackIn, -convertFromLevel(playerIn.experienceLevel));
+                GreenPower.log.info("xp after adding: " + getStoredXP(itemStackIn));
                 playerIn.addExperienceLevel(1);
             }
         //Put levels in
         } else {
             if (playerIn.experienceLevel >=1) {
                 addStoredXP(itemStackIn, convertFromLevel(playerIn.experienceLevel-1));
+                GreenPower.log.info("xp after taking: " + getStoredXP(itemStackIn));
                 playerIn.addExperienceLevel(-1);
             }
         }
